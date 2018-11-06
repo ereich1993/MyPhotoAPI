@@ -10,4 +10,15 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\gRATE.Data\gRATE.Data.csproj" />
+    <ProjectReference Include="..\..\gRATE.Models\gRATE.Models.csproj" />
+    <ProjectReference Include="..\..\gRATE.Tests\gRATE.Tests.csproj" />
+    <ProjectReference Include="..\..\gRATE.ViewModels\gRATE.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

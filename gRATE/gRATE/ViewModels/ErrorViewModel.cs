@@ -1,6 +1,6 @@
 using System;
 
-namespace gRATE.Models
+namespace gRATE.ViewModels
 {
     public class ErrorViewModel
     {

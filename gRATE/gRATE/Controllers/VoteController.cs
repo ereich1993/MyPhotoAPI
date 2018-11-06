@@ -1,4 +1,5 @@
 ﻿using gRATE.Models;
+using gRATE.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,12 +11,12 @@ namespace gRATE.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ImageController : ControllerBase
+    public class VoteController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get(Category category = Category.All)
+        [HttpPost]
+        public IActionResult Post(VoteViewModel vote)
         {
-            return Ok(new Image());
+            return Ok();
         }
     }
 }
