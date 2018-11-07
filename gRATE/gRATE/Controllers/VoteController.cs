@@ -1,11 +1,6 @@
-﻿using gRATE.Models;
+﻿using gRATE.Data;
 using gRATE.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace gRATE.Controllers
 {
@@ -13,6 +8,13 @@ namespace gRATE.Controllers
     [ApiController]
     public class VoteController : ControllerBase
     {
+        private IRepository _repository;
+
+        public VoteController(IRepository repository)
+        {
+            _repository = repository;
+        }
+
         [HttpPost]
         public IActionResult Post(VoteViewModel vote)
         {

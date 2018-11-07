@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using gRATE.Data;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace gRATE.Controllers
 {
@@ -11,6 +7,13 @@ namespace gRATE.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
+        private IRepository _repository;
+
+        public ProfileController(IRepository repository)
+        {
+            _repository = repository;
+        }
+
         [HttpGet]
         public IActionResult Get()
         {

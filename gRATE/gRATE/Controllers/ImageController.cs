@@ -1,10 +1,6 @@
-﻿using gRATE.Models;
-using Microsoft.AspNetCore.Http;
+﻿using gRATE.Data;
+using gRATE.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace gRATE.Controllers
 {
@@ -12,6 +8,13 @@ namespace gRATE.Controllers
     [ApiController]
     public class ImageController : ControllerBase
     {
+        private IRepository _repository;
+
+        public ImageController(IRepository repository)
+        {
+            _repository = repository;
+        }
+
         [HttpGet]
         public IActionResult Get(Category category = Category.All)
         {

@@ -1,4 +1,5 @@
-﻿using gRATE.ViewModels;
+﻿using gRATE.Data;
+using gRATE.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,13 @@ namespace gRATE.Controllers
 {
     public class HomeController : Controller
     {
+        private IRepository _repository;
+
+        public HomeController(IRepository repository)
+        {
+            _repository = repository;
+        }
+
         public IActionResult Index()
         {
             return View();
