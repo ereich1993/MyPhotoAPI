@@ -2,6 +2,6 @@
 {
     public enum Category
     {
-        All
+        All, Profile, Animal, Food, Landscape, Artsy, Abstract, XXX
     }
 }
