@@ -35,7 +35,9 @@ namespace gRATE
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<GRateDbContext>(
                 options => options.UseSqlServer(
-                     Configuration.GetConnectionString("GRateConnection")));
+                     Configuration.GetConnectionString("GRateConnection"),
+                     b => b.MigrationsAssembly("gRATE")
+                     ));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
