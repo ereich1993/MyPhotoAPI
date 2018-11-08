@@ -16,18 +16,18 @@ namespace gRate.Test
         }
 
         [Test]
-        public void TestEmptyCtor_fieldsAreGiven_fieldsAreSaved()
+        public void TestCtor_argsPassed_valuesSet()
         {
-            VoteViewModel model = new VoteViewModel()
-            {
-                ImageId = 1,
-                UserId = 2,
-                VoteValue = 2
-            };
-
-            List<object> expectedFields = new List<object>()
+            object[] expectedFields = new object[]
             {
                 1,2,2
+            };
+
+            VoteViewModel model = new VoteViewModel()
+            {
+                ImageId = (int)expectedFields[0],
+                UserId = (int)expectedFields[1],
+                VoteValue = (int)expectedFields[2]
             };
 
             List<object> actualFields = new List<object>()

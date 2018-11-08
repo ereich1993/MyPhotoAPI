@@ -1,6 +1,6 @@
 ﻿using gRATE.ViewModels;
 using NUnit.Framework;
-using System.Collections.Generic;
+using gRATE.Models;
 
 namespace gRate.Test
 {
@@ -14,27 +14,27 @@ namespace gRate.Test
         }
 
         [Test]
-        public void TestEmptyCtor_fieldsAreGiven_fieldsAreSaved()
+        public void TestCtor_argsPassed_valuesSet()
         {
-            ImageViewModel model = new ImageViewModel()
+            object[] expectedFields = new object[]
             {
-                Category = gRATE.Models.Category.Animal,
-                Description = "testDesciption",
-                DesiredVoteCount = gRATE.Models.DesiredVoteCount.M,
-                Path = "testPath",
-                Title = "TestingTesting1234"
-            };
-
-            List<object> expectedFields = new List<object>()
-            {
-               gRATE.Models.Category.Animal,
+               Category.Animal,
                 "testDesciption",
-                gRATE.Models.DesiredVoteCount.M,
+                DesiredVoteCount.M,
                 "testPath",
                 "TestingTesting1234"
             };
 
-            List<object> actualFields = new List<object>()
+            ImageViewModel model = new ImageViewModel()
+            {
+                Category = (Category)expectedFields[0],
+                Description = (string)expectedFields[1],
+                DesiredVoteCount = (DesiredVoteCount)expectedFields[2],
+                Path = (string)expectedFields[3],
+                Title = (string)expectedFields[4]
+            };
+
+            object[] actualFields = new object[]
             {
                 model.Category,
                 model.Description,
