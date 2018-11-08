@@ -33,6 +33,7 @@ namespace gRATE
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddDbContext<GRateDbContext>(
                 options => options.UseSqlServer(

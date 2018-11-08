@@ -1,4 +1,5 @@
 ﻿using gRATE.Models;
+using gRATE.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -61,15 +62,34 @@ namespace gRATE.Data
             return array.ToList();
         }
 
-        public Task<bool> PutVote(Vote vote)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<bool> SaveAll()
         {
             int result = await _gRateCtx.SaveChangesAsync();
             return result > 0;
+        }
+
+        public async Task<bool> PutVote(VoteViewModel voteVM)
+        {
+            var sameVotes = await _gRateCtx.Votes.Where(v => (v.Image.Id == voteVM.ImageId && v.User.Id == voteVM.UserId)).ToListAsync();
+
+            if (sameVotes.Count > 0) return false;
+
+            User user = await _gRateCtx.Users.Where(u => u.Id == voteVM.UserId).FirstOrDefaultAsync();
+            Image image = await _gRateCtx.Images.Where(i => i.Id == voteVM.ImageId).FirstOrDefaultAsync();
+
+            if (image != null && user != null)
+            {
+                Vote newVote = new Vote()
+                {
+                    User = user,
+                    Image = image,
+                    Date = DateTime.Now
+                };
+                await _gRateCtx.AddAsync(newVote);
+                return await SaveAll();
+            }
+
+            return false;
         }
 
         public async Task<User> GetCurrentUser()
