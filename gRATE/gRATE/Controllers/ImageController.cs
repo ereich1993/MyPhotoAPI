@@ -1,6 +1,7 @@
 ﻿using gRATE.Data;
 using gRATE.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace gRATE.Controllers
 {
@@ -10,15 +11,20 @@ namespace gRATE.Controllers
     {
         private IRepository _repository;
 
+        //ctor
         public ImageController(IRepository repository)
         {
             _repository = repository;
         }
 
         [HttpGet]
-        public IActionResult Get(Category category = Category.All)
+        public async Task<IActionResult> GetAsync(Category category = Category.All)
         {
-            return Ok(new Image());
+            Image image = await _repository.GetAnImage(category);
+
+            if (image != null) return Ok(image);
+
+            return NotFound();
         }
     }
 }
