@@ -22,7 +22,7 @@ namespace gRATE.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok(_repository.GetCategories());
         }
     }
 }
