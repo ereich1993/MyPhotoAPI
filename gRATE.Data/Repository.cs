@@ -1,13 +1,9 @@
-﻿using System;
-using gRATE.Models;
+﻿using gRATE.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using Remotion.Linq.Clauses;
 using Image = gRATE.Models.Image;
 
 namespace gRATE.Data
