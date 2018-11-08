@@ -1,25 +1,26 @@
 ﻿using gRATE.Models;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace gRATE.Data
 {
     public interface IRepository
     {
-        bool SaveAll();
+        Task<bool> SaveAll();
 
-        bool Add(object newRecord);
+        void Add(object newRecord);
 
-        Image GetAnImage(Category cat = Category.All);
+        Task<Image> GetAnImage(Category cat = Category.All);
 
         IEnumerable<string> GetCategories();
 
-        bool PutVote(Vote vote);
+        Task<bool> PutVote(Vote vote);
 
-        bool PutImage(Image image);
+        Task<bool> PutImage(Image image);
 
-        IEnumerable<Image> GetAllImagesByUserId(int userId);
+        Task<IEnumerable<Image>> GetAllImagesByUserId(int userId);
 
-        bool GenerateImageStatistics(int imageId);
+        Task<bool> GenerateImageStatistics(int imageId);
     }
 }
