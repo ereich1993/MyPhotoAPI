@@ -1,4 +1,6 @@
 ﻿using gRATE.Models;
+using gRATE.ViewModels;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,5 +21,7 @@ namespace gRATE.Data
         Task<bool> GenerateImageStatistics(int imageId);
 
         Task<User> GetCurrentUser();
+
+        Task<bool> PutVote(VoteViewModel voteVM);
     }
 }

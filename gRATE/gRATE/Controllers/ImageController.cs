@@ -13,6 +13,7 @@ namespace gRATE.Controllers
     {
         private IRepository _repository;
 
+        //ctor
         public ImageController(IRepository repository)
         {
             _repository = repository;

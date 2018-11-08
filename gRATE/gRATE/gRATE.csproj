@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\gRATE.Data\gRATE.Data.csproj" />
     <ProjectReference Include="..\..\gRATE.Models\gRATE.Models.csproj" />
-    <ProjectReference Include="..\..\gRATE.Tests\gRATE.Tests.csproj" />
     <ProjectReference Include="..\..\gRATE.ViewModels\gRATE.ViewModels.csproj" />
   </ItemGroup>
 
