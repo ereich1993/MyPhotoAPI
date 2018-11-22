@@ -1,0 +1,2 @@
+# MyPhotoAPI
+Photo rating API
